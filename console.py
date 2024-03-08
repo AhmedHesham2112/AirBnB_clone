@@ -29,10 +29,10 @@ class HBNBCommand(cmd.Cmd):
         """
         if not line:
             print("** class name missing **")
-        elif line != "BaseModel":
+        elif line not in storage.classes():
             print("** class doesn't exist **")
         else:
-            model = BaseModel()
+            model = storage.classes()[line]()
             print(model.id)
             model.save()
 
@@ -43,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             args = line.split(' ')
-            if args[0] != "BaseModel":
+            if args[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(args) < 2:
                 print("** instance id missing **")
@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             args = line.split(' ')
-            if args[0] != "BaseModel":
+            if args[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(args) < 2:
                 print("** instance id missing **")
@@ -81,7 +81,7 @@ class HBNBCommand(cmd.Cmd):
             for k in storage.all():
                 instances.append(str(storage.all()[k]))
             print(instances)
-        elif line != "BaseModel":
+        elif line not in storage.classes():
             print("** class doesn't exist **")
         else:
             instances = []
@@ -91,22 +91,22 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, line):
         """Updates an instance based on the class name and id by adding or updating attribute"""
-        if not line:
+        if line == "" or line is None:
             print("** class name missing **")
         else:
             args = line.split(' ')
-            if args[0] != "BaseModel":
+            if args[0] not in storage.classes():
                 print("** class doesn't exist **")
-            elif len(args) < 2:
+            elif args[1] is None:
                 print("** instance id missing **")
-            elif len(args) < 3:
-                print("** attribute name missing **")
-            elif len(args) < 4:
-                print("** value missing **")
             else:
                 key = args[0] + "." + args[1]
                 if key not in storage.all():
                     print("** no instance found **")
+                elif args[2] is None:
+                print("** attribute name missing **")
+                elif args[3] is None:
+                print("** value missing **")
                 else:
                     if args[3][0] == '"':
                         args[3] = args[3].replace('"', '')
