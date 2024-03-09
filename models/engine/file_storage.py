@@ -5,6 +5,7 @@ JSON file and deserializes JSON file to instances"""
 import datetime
 import json
 from models.base_model import BaseModel
+import os
 
 
 class FileStorage:
@@ -35,13 +36,13 @@ class FileStorage:
         (only if the JSON file (__file_path) exists ;
         otherwise, do nothing. If the file doesn’t exist,
         no exception should be raised)"""
-        try:
-            with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
-                json_load = json.load(file)
-            for k, v in json_load.items():
-                FileStorage.__objects[k] = BaseModel(**v)
-        except:
-            pass
+        if not os.path.isfile(FileStorage.__file_path):
+            return
+        with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
+            json_load = json.load(file)
+        for k, v in json_load.items():
+            FileStorage.__objects[k] = BaseModel(**v)
+
 
     def classes(self):
         """Returns a dictionary of valid classes and their references."""
