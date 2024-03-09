@@ -43,7 +43,6 @@ class FileStorage:
         for k, v in json_load.items():
             FileStorage.__objects[k] = BaseModel(**v)
 
-
     def classes(self):
         """Returns a dictionary of valid classes and their references."""
         from models.base_model import BaseModel
