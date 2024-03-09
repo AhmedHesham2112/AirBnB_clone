@@ -35,7 +35,8 @@ class BaseModel:
 
     def __str__(self):
         """should print: [<class name>] (<self.id>) <self.__dict__>"""
-        return "[" + type(self).__name__ + "]" + " (" + self.id + ") " + str(self.__dict__)
+        n = type(self).__name__
+        return "[" + n + "]" + " (" + self.id + ") " + str(self.__dict__)
 
     def save(self):
         """updates the public instance attribute
