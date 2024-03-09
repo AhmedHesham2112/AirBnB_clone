@@ -9,34 +9,6 @@ from models.base_model import BaseModel
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the command interpreter"""
     prompt = "(hbnb) "
- 
-
-    # def precmd(self,line):
-    #     commands = line.split('.')
-    #     print(commands)
-
-    #     if len(commands) == 1:
-    #         if commands[0] == 'all':
-                
-    #             self.do_all("")  # Call the do_all function
-    #         elif commands[0] == 'quit':
-    #             self.do_quit("")  # Call the do_quit function
-    #         elif commands[0] == 'EOF':
-    #             self.do_EOF("")  # Call the do_EOF function
-    #         else:
-    #             print("** Unknown command **")
-
-    #     elif len(commands) == 2:
-    #         class_name = commands[0]
-    #         command = commands[1]
-
-    #         if command == 'all()':
-    #             print("all")
-    #             self.do_all(class_name)  # Call the do_all function with class name
-    #         else:
-    #             print("** Unknown command **")
-    #     else:
-    #         print("** Unknown command **")
 
     def do_EOF(self, line):
         """EOF command to exit the program
