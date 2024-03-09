@@ -12,9 +12,8 @@ class BaseModel:
         """Initialize a new BaseModel.
 
         Args:
-            id (str): The identity of the new BaseModel.
-            created_at: The time the instance was created at
-            updated_at: The time the instance was updated at
+            - *args: list of arguments
+            - **kwargs: dict of key-values arguments
         """
         if len(kwargs) != 0:
             for key in kwargs:
