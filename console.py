@@ -5,6 +5,7 @@ import cmd
 from models import storage
 from models.base_model import BaseModel
 
+
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the command interpreter"""
     prompt = "(hbnb) "
@@ -24,8 +25,9 @@ class HBNBCommand(cmd.Cmd):
         """Doesn't do anything on ENTER."""
         pass
 
-    def do_create(self,line):
-        """Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.
+    def do_create(self, line):
+        """Creates a new instance of BaseModel,
+        saves it (to the JSON file) and prints the id.
         """
         if not line:
             print("** class name missing **")
@@ -37,7 +39,8 @@ class HBNBCommand(cmd.Cmd):
             model.save()
 
     def do_show(self, line):
-        """Prints the string representation of an instance based on the class name and id.
+        """Prints the string representation of
+        an instance based on the class name and id.
         """
         if not line:
             print("** class name missing **")
@@ -74,7 +77,8 @@ class HBNBCommand(cmd.Cmd):
                     storage.save()
 
     def do_all(self, line):
-        """Prints the string representation of an instance based on the class name and id.
+        """Prints the string representation of an
+        instance based on the class name and id.
         """
         if not line:
             instances = []
@@ -90,7 +94,8 @@ class HBNBCommand(cmd.Cmd):
             print(instances)
 
     def do_update(self, line):
-        """Updates an instance based on the class name and id by adding or updating attribute"""
+        """Updates an instance based on the class name
+        and id by adding or updating attribute"""
         if line == "" or line is None:
             print("** class name missing **")
         else:
@@ -104,9 +109,9 @@ class HBNBCommand(cmd.Cmd):
                 if key not in storage.all():
                     print("** no instance found **")
                 elif args[2] is None:
-                print("** attribute name missing **")
+                    print("** attribute name missing **")
                 elif args[3] is None:
-                print("** value missing **")
+                    print("** value missing **")
                 else:
                     if args[3][0] == '"':
                         args[3] = args[3].replace('"', '')
@@ -116,6 +121,7 @@ class HBNBCommand(cmd.Cmd):
                         args[3] = int(args[3])
                     storage.all()[key].__dict__[args[2]] = args[3]
                     storage.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

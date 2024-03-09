@@ -8,6 +8,7 @@ from models import storage
 import os
 import time
 
+
 class TestFileStorage(unittest.TestCase):
 
     """Test Cases for the FileStorage class."""
@@ -24,7 +25,3 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(hasattr(FileStorage, "_FileStorage__file_path"))
         self.assertTrue(hasattr(FileStorage, "_FileStorage__objects"))
         self.assertEqual(getattr(FileStorage, "_FileStorage__objects"), {})
-       
-    
-   
-
