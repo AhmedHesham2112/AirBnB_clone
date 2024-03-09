@@ -9,8 +9,7 @@ from models.base_model import BaseModel
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the command interpreter"""
     prompt = "(hbnb) "
-
-   
+ 
 
     # def precmd(self,line):
     #     commands = line.split('.')
@@ -109,7 +108,6 @@ class HBNBCommand(cmd.Cmd):
         """Prints the string representation of an
         instance based on the class name.
         """
-        print("line = "+line)
         if not line or line == "":
             instances = []
             for k in storage.all():
@@ -120,7 +118,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             instances = []
             for k in storage.all():
-                print(k.split(".")[0])
                 if k.split(".")[0] == line:
                     instances.append(str(storage.all()[k]))
             print(instances)
