@@ -58,11 +58,13 @@ h4 {
     list-style-type: none;
     margin-top: 19px;
     padding: 20px 0;
+    position: relative;
 }
 
 .locations:hover .popover {
 	display: inline-block;
     margin-left: -1px;
+    z-index: 1000;
 }
 
 .amenities:hover .popover {
