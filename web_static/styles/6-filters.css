@@ -70,6 +70,7 @@ h4 {
 .amenities:hover .popover {
 	display: inline-block;
     margin-left: -5px;
+    z-index: 1000;
 }
 
 ul {

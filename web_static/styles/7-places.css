@@ -1,7 +1,8 @@
 .places {
-    z-index: 0;
-    overflow: hidden;
+    display: flex;
     text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 
@@ -20,8 +21,6 @@
     border: 1px solid #FF5A5F;
     border-radius: 4px;
     text-align: center;
-    display: inline-block;
-
 }
 
 .places article h2 {
