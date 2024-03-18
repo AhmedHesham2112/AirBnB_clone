@@ -22,7 +22,7 @@ button:hover {
     opacity: 90%;
 }
 
-.locations {
+.filters .locations {
     display: inline-block;
 	vertical-align: middle;
     height: 100%;
@@ -30,7 +30,7 @@ button:hover {
     border-right: 1px solid #DDDDDD;
 }
 
-.amenities {
+.filters .amenities {
     display: inline-block;
 	vertical-align: middle;
     height: 100%;
@@ -61,13 +61,13 @@ h4 {
     position: relative;
 }
 
-.locations:hover .popover {
+.filters .locations:hover .popover {
 	display: inline-block;
     margin-left: -1px;
     z-index: 1000;
 }
 
-.amenities:hover .popover {
+.filters .amenities:hover .popover {
 	display: inline-block;
     margin-left: -5px;
     z-index: 1000;
